@@ -22,14 +22,37 @@ namespace Generics
 
         static void Main(string[] args)
         {
+            Storage<Equipment> equipment = new Storage<Equipment>();
+            Storage<Food> food = new Storage<Food>();
+
+            CountToNum(15.2f);
+            CountToNum(18.54);
+            
 
             var numbers = new int[] { 1, 2, 3, 4, 5, 6 };
 
-            
+            var Enums = ExtensionMethods.FindOdds<int>(numbers);
+            foreach(var v in Enums)
+			{
+                Console.WriteLine(v);
+			}
 
+            var sorted = ExtensionMethods.SortArray<int>(numbers);
+            foreach(var v in sorted)
+			{
+                Console.WriteLine(v);
+			}
 
 
         }
+
+        public static void CountToNum<T>(T n)
+		{
+            for(int i=0; i<=Convert.ToInt32(n); i++)
+			{
+                Console.WriteLine(i);
+			}
+		}
       
 
         //ExtensionMethods
